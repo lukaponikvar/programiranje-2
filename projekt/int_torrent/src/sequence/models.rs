@@ -1,9 +1,8 @@
-
 pub trait Sequence<T> {
     fn name(&self) -> String;
     fn start(&self) -> T;
 
-    // To pustimo do naslednjič, ko se bom natančneje poučili o Rustovih traitih in izposojanju
+    // To pustimo do naslednjič, ko se bomo natančneje poučili o Rustovih traitih in izposojanju
     // fn current_index(&self) -> usize;
     // fn current(&self) -> Option<T>;
 

@@ -1,26 +1,28 @@
 use crate::expression::models::{AExpr, BinaryOperation};
 use crate::expression::{evaluation, models};
-use crate::sequence::arithmetic::Arithmetic;
+// use crate::sequence::arithmetic::Arithmetic;
 use crate::sequence::combined::Combined;
 use crate::sequence::models::Sequence;
+use crate::sequence::constant::Constant;
 
 pub mod expression;
 pub mod sequence;
+pub mod mathematical_functions;
 
 use std::collections::HashMap;
 
 fn main() {
     // Naredite nekaj zaporedij
-    // let s1 = sequence::models::Constant::new(1);
-    // let s2 = sequence::models::Constant::new(2);
+    let s1 = Constant::new(1);
+    let s2 = Constant::new(2);
     // let s3 = Arithmetic::new(0, 10);
     // let s3_ = Arithmetic::new(0, 10);
     // let s4 = sequence::shifted::shifted_sequence(&*s3, 5);
 
-    // println!("{}", s3.name());
+    println!("{}", s1.name());
 
-    // println!("{:?}", s4.k_th(10));
-    // println!("{:?}", s3.name());
+    println!("{:?}", s2.k_th(10));
+    println!("{:?}", s1.name());
 
     // Kombinirano zaporedje
 
