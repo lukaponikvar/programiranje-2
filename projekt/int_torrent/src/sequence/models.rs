@@ -12,4 +12,14 @@ pub trait Sequence<T> {
     fn k_th(&self, k: usize) -> Option<T>;
 
     fn contains(&self, item: T) -> bool;
+
+    // fn contains(&self, item: T) -> bool {
+    //     let mut k = 0;
+    //     loop{
+    //         if self.k_th(k) == item {
+    //             return True
+    //         }
+    //     k += 1
+    //     } 
+    // };
 }
