@@ -11,21 +11,22 @@ impl Constant<i64> {
             vrednost,
         }
     }
-
-    pub fn name(&self) -> String {
+}
+impl Sequence<i64> for Constant<i64> {
+    fn name(&self) -> String {
         let niz = format!("Konstantno zaporedje {}", self.vrednost);
         niz
     }
 
-    pub fn start(&self) -> i64 {
+    fn start(&self) -> i64 {
         self.vrednost
     }
 
-    pub fn k_th(&self, k: u32) -> Option<i64> {
+    fn k_th(&self, k: usize) -> Option<i64> {
         Some(self.vrednost)
     }
 
-    pub fn contains(&self, item: i64) -> bool {
+    fn contains(&self, item: i64) -> bool {
         self.vrednost == item
     }
 }

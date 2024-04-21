@@ -13,20 +13,23 @@ impl Arithmetic<i64> {
             razlika,
         }
     }
+}
 
-    pub fn name(&self) -> String {
+impl Sequence<i64> for Arithmetic<i64> {
+    fn name(&self) -> String {
         format!("Aritmeticno zaporedje z zacetnim clenom {} in razliko {}", self.zacetni_clen, self.razlika)
     }
 
-    pub fn start(&self) -> i64 {
+    fn start(&self) -> i64 {
         self.zacetni_clen
     }
 
-    pub fn k_th(&self, k: i64) ->Option<i64> {
+    fn k_th(&self, k: usize) ->Option<i64> {
+        let k = k as i64;
         Some(self.zacetni_clen + k * self.razlika)
     }
 
-    pub fn contains(&self, item: i64) -> bool {
+    fn contains(&self, item: i64) -> bool {
         ((item - self.zacetni_clen) / self.razlika)*self.razlika + self.zacetni_clen == item
     }
 

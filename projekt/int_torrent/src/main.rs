@@ -1,10 +1,9 @@
 use crate::expression::models::{AExpr, BinaryOperation};
 use crate::expression::{evaluation, models};
-// use crate::sequence::arithmetic::Arithmetic;
+use crate::sequence::arithmetic::Arithmetic;
 use crate::sequence::combined::Combined;
 use crate::sequence::models::Sequence;
 use crate::sequence::constant::Constant;
-use crate::sequence::arithmetic::Arithmetic;
 
 pub mod expression;
 pub mod sequence;
