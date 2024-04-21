@@ -3,20 +3,33 @@ use crate::sequence::models::Sequence;
 use std::collections::HashMap;
 
 pub struct Combined<'a, T> {
-    samo_da_ni_unused_variable: Box<&'a T>,
+    sequences: Vec<Box<&'a dyn Sequence<T>>>,
+    expression: AExpr,
 }
 
 impl Sequence<i64> for Combined<'_, i64> {
     fn name(&self) -> String {
-        panic!("Shifted")
+        let mut niz = format!("Combined");
+        for zaporedje in self.sequences.iter() {
+            niz = format!("{} {},", niz, (*zaporedje).name())
+        };
+        niz
     }
 
     fn start(&self) -> i64 {
-        panic!("Shifted")
+        let mut hash = HashMap::new();
+        for zaporedje in self.sequences.iter() {
+            hash.insert(zaporedje.name(), Some(zaporedje.start()));
+        };
+        self.expression.evaluate_map(&hash).unwrap()
     }
 
     fn k_th(&self, k: usize) -> Option<i64> {
-        panic!("Shifted")
+        let mut hash = HashMap::new();
+        for zaporedje in self.sequences.iter() {
+            hash.insert(zaporedje.name(), zaporedje.k_th(k));
+        };
+        self.expression.evaluate_map(&hash)
     }
 
     fn contains(&self, item: i64) -> bool {
@@ -26,7 +39,12 @@ impl Sequence<i64> for Combined<'_, i64> {
 
 impl<T> Combined<'_, T> {
     fn new(sequences: Vec<Box<&dyn Sequence<T>>>, expression: AExpr) -> Box<Combined<T>> {
-        Box::new(panic!("Shifted"))
+        Box::new(
+            Combined{
+                sequences,
+                expression,
+            }
+        )
     }
 }
 
