@@ -18,8 +18,8 @@ impl Sequence<i64> for Constant<i64> {
         niz
     }
 
-    fn start(&self) -> i64 {
-        self.vrednost
+    fn start(&self) -> Option<i64> {
+        Some(self.vrednost)
     }
 
     fn k_th(&self, k: usize) -> Option<i64> {

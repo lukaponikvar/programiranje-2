@@ -10,6 +10,26 @@
 
 // Vzemite zaporedja iz prejšnjih vaj in naredite nov objekt, ki sprejme zaporedje in ga naredi iterabilnega
 
+
+fn main() {
+    let k_dva = |x| {x * 2};
+    println!("{}", apply(k_dva, 10));
+    // ali
+    println!("{}", apply(|x| {x * 2}, 10));
+    // 
+    let neki = 3;
+    println!("{}", apply(|x| {x * neki}, 10));
+    println!("{}", apply_b(|x| {x * neki}, 10));
+}
+
+fn apply<F: FnOnce(i32) -> i32>(func: F, a: i32) -> i32 {
+    func(a)
+}
+
+fn apply_b<F: FnOnce(T1) -> T2, T1, T2>(func: F, a: T1) -> T2 {
+    func(a)
+}
+
 // Iteratorji
 
 // Napišite funkcijo, ki sprejme vektor XYZ in s pomočjo iteratorja naredi W
@@ -81,3 +101,4 @@ fn test_degenerate_cases() {
 
 
 */
+

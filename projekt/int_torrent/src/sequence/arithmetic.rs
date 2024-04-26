@@ -20,11 +20,11 @@ impl Sequence<i64> for Arithmetic<i64> {
         format!("Aritmeticno zaporedje z zacetnim clenom {} in razliko {}", self.zacetni_clen, self.razlika)
     }
 
-    fn start(&self) -> i64 {
-        self.zacetni_clen
+    fn start(&self) -> Option<i64> {
+        Some(self.zacetni_clen)
     }
 
-    fn k_th(&self, k: usize) ->Option<i64> {
+    fn k_th(&self, k: usize) -> Option<i64> {
         let k = k as i64;
         Some(self.zacetni_clen + k * self.razlika)
     }

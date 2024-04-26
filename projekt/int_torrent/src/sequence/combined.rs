@@ -16,12 +16,12 @@ impl Sequence<i64> for Combined<'_, i64> {
         niz
     }
 
-    fn start(&self) -> i64 {
+    fn start(&self) -> Option<i64> {
         let mut hash = HashMap::new();
         for zaporedje in self.sequences.iter() {
-            hash.insert(zaporedje.name(), Some(zaporedje.start()));
+            hash.insert(zaporedje.name(), zaporedje.start());
         };
-        self.expression.evaluate_map(&hash).unwrap()
+        self.expression.evaluate_map(&hash)
     }
 
     fn k_th(&self, k: usize) -> Option<i64> {
