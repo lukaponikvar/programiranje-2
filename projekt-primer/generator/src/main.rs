@@ -148,8 +148,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         "http://0.0.0.0:7878/project".to_string(),
         serde_json::to_string(&get_project()).unwrap(),
     )
-    .await
-    .unwrap();
+    .await?;
     println!("HERE {}", b);
 
     let b = send_get("http://0.0.0.0:7878".to_string()).await?;
@@ -184,7 +183,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     (&Method::POST, r) => {
                         let seqs = sequences();
                         let sequences = seqs
-                            .iter()
+                            // .iter()
                             .find(|&x| ("/sequence/".to_string() + &x.name) == r);
                         match sequences {
                             None => create_404(),

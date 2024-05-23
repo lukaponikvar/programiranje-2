@@ -18,17 +18,6 @@ for j in projects:
                 },
                 "parameters": [z, k],
                 "sequences": [
-                    {
-                        "name": "Arithmetic",
-                        "parameters": [z, k],
-                        "sequences": [
-                            {
-                                "name": "Arithmetic",
-                                "parameters": [z, k],
-                                "sequences": [],
-                            }
-                        ],
-                    },
                 ],
             }
             r = requests.post(url + "/Arithmetic", json=body)

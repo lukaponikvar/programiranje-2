@@ -1,5 +1,5 @@
 [package]
-name = "main_server"
+name = "register"
 version = "0.1.0"
 edition = "2021"
 
